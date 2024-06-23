@@ -1,0 +1,551 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080808;
+  color: #fff;
+}
+
+/*100vh: vh stands for viewport height. 
+It represents 1/100th of the height of 
+the viewport, which is the visible area
+of a web page. So 100vh means the element 
+will take up the full height of the viewport,
+regardless of how much content it contains 
+or the size of the viewport itself.*/
+
+#header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(Images/background.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  padding: 10px 10%;
+}
+
+nav {
+  display: flex; /*Displaying Logo and Other info on each side*/
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 300px;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+/*The position: absolute; CSS property 
+is used to position an element relative 
+to its closest positioned ancestor*/
+
+nav ul li a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #8a2be2;
+  transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.header-text {
+  margin-top: 20%;
+  font-size: 30px;
+}
+
+.header-text h1 {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.header-text h1 span {
+  color: #8a2be2;
+}
+
+/* ---------about me ----------*/
+
+#about {
+  padding: 80px;
+  color: #ababab;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.about-col-1 {
+  flex-basis: 35%;
+}
+.about-col-1 img {
+  max-width: 100%; /* Scale down the image width to fit its container */
+  max-height: 800px; /* Set a maximum height for the image */
+  width: auto; /* Ensure the image width adjusts proportionally */
+  height: auto; /* Ensure the image height adjusts proportionally */
+  border-radius: 15px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-col-2 {
+  flex-basis: 60%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.sub-title {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px;
+}
+
+.tab-links {
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-links::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #8a2be2;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+.tab-links.active-link::after {
+  width: 100%;
+}
+
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.tab-contents ul li span {
+  color: #8a2be2;
+  font-size: 14px;
+}
+
+.tab-contents {
+  display: none;
+}
+
+.tab-contents.active-tab {
+  display: block;
+}
+
+/*---------services-----------*/
+
+#services {
+  padding: 30px 0;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; /* Adjust the gap value as needed */
+  margin-top: 30px;
+}
+
+.services-list div {
+  background: #262626;
+  padding: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  border-right: 10px;
+  border-radius: 10px;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.services-list div i {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.services-list div h2 {
+  margin-bottom: 20px;
+}
+
+.services-list div p {
+  font-size: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.services-list div:hover {
+  background: #720e9e;
+  transform: translateY(-10px);
+}
+
+/*-----------------Portfolio----------*/
+
+#portfolio {
+  padding: 50px 0;
+}
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; /* Adjust the gap value as needed */
+  margin-top: 30px;
+}
+
+.work {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.work .carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.work .carousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.layer {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #e6e6fa);
+  position: absolute;
+  border-radius: 10px;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+  text-align: center;
+  transition: height 0.5s;
+}
+
+.layer h3 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.layer a {
+  margin-top: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.work:hover .layer {
+  height: 100%;
+}
+
+.btn {
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  border: #8a2be2;
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background: #8a2be2;
+}
+
+/* ---------Contactt---------*/
+
+#contact {
+  padding: 80px 0; /* Keep the padding as desired */
+  position: relative; /* Set position to relative */
+}
+
+.contact-left {
+  width: 40%; /* Adjust the width of the left section */
+  float: left; /* Float left to keep it on the left side */
+}
+
+.contact-right {
+  width: 50%; /* Adjust the width of the right section */
+  position: absolute; /* Set position to absolute */
+  right: 0; /* Position it to the right side */
+  top: 100px; /* Align it to the top */
+}
+
+.contact-left p {
+  margin-top: 20px;
+}
+
+.contact-left p i {
+  color: #8a2be2;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.social-icons {
+  margin-top: 30px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: #ababab;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #8a2be2;
+  transform: translateY(-5px);
+}
+
+.btn.btn2 {
+  display: inline-block;
+  background: #8a2be2;
+}
+
+.contact-right form {
+  width: 100%; /* Make the form width 100% */
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: calc(100% - 30px); /* Adjust width to leave space for padding */
+  border: 0;
+  outline: none;
+  background: #ababab;
+  padding: 10px; /* Decrease padding */
+  margin: 10px 0; /* Decrease margin */
+  color: #fff;
+  font-size: 16px; /* Decrease font size */
+  border-radius: 6px;
+}
+
+form .btn.btn2 {
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.contact-right h1 {
+  padding: 10px 0;
+}
+
+/*--------------CSS for Small Screen--------------*/
+nav .fa-circle-xmark {
+  display: none;
+}
+
+nav .fa-ellipsis-vertical {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #header {
+    background-image: url(Images/phone-background.jpg);
+  }
+
+  .header-text {
+    margin-top: 100%;
+    font-size: 16px;
+  }
+
+  .header-text h1 {
+    font-size: 30px;
+  }
+
+  nav .fa-circle-xmark {
+    display: block;
+    font-size: 25px;
+  }
+
+  nav .fa-ellipsis-vertical {
+    display: block;
+    font-size: 25px;
+  }
+
+  nav ul {
+    background: #8a2be2;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    padding: 50px 0;
+    z-index: 2;
+    transition: right 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 25px;
+  }
+
+  nav ul .fa-circle-xmark {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  nav ul .fa-ellipsis-vertical {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  #about {
+    padding: 40px; /* Adjust padding for smaller screens */
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%; /* Full width for both columns on small screens */
+    margin-bottom: 20px; /* Add some space between columns */
+    text-align: center; /* Center-align content */
+  }
+
+  .about-col-1 img {
+    max-width: 80%; /* Decrease image width */
+    max-height: auto; /* Let image height adjust */
+    margin: 0 auto 20px; /* Center image and add some space below */
+  }
+
+  .tab-titles {
+    flex-direction: column; /* Stack tab titles vertically */
+    margin-bottom: 20px; /* Add some space below tab titles */
+  }
+
+  .tab-links {
+    margin: 10px auto; /* Center-align tab links */
+    display: block; /* Make tab links full width */
+  }
+
+  .tab-contents ul li {
+    margin: 10px auto; /* Center-align tab content items */
+  }
+
+  /* Styles for Services section */
+  #services .services-list div {
+    padding: 30px; /* Adjust padding for smaller screens */
+  }
+
+  /* Styles for Portfolio section */
+  #portfolio .work-list {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* Adjust grid layout for smaller screens */
+    gap: 20px; /* Adjust gap value */
+  }
+
+  .work img {
+    width: 100%; /* Ensure images take full width */
+  }
+
+  /* Styles for Contact section */
+  #contact .contact-left,
+  #contact .contact-right {
+    width: 100%; /* Make both sections full width */
+    float: none; /* Remove float */
+  }
+
+  .contact-right {
+    position: static; /* Reset position */
+    margin-top: 20px; /* Add margin on top */
+  }
+
+  .contact-left p {
+    text-align: center; /* Center-align contact info */
+  }
+
+  .social-icons {
+    text-align: center; /* Center-align social icons */
+  }
+
+  .social-icons a {
+    display: inline-block; /* Ensure social icons display in line */
+  }
+
+  .btn.btn2 {
+    display: block; /* Display button as block */
+    margin: 20px auto; /* Center-align button */
+  }
+
+  .contact-right form input[type="text"],
+  .contact-right form input[type="email"],
+  .contact-right form textarea,
+  .contact-right form .btn.btn2 {
+    width: 100%; /* Make form elements full width */
+  }
+
+  .contact-right h1 {
+    text-align: center; /* Center-align heading */
+    padding: 0 10px; /* Add padding */
+  }
+}
+
+#msg {
+  color: #8a2be2;
+  margin-top: -40px;
+  display: block;
+}
